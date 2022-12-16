@@ -1,5 +1,5 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
-class helloHandler(BaseHTTPRequestHandler):
+class HelloHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.send_header("content-type","text/html")
@@ -8,6 +8,9 @@ class helloHandler(BaseHTTPRequestHandler):
 
 def main():
     port = 8000
-    server = HTTPServer(("", port), helloHandler)
-    print("server online: port" + str(port))
+    server = HTTPServer(('', port), HelloHandler)
+    print("server online: port %s" % port)
     server.serve_forever()
+    
+if __name__ == "__main__":
+    main()
